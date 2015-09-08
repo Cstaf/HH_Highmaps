@@ -25,7 +25,7 @@ library(stringr)
 ############################### Ladda funktioner ###############################
 if (!.is.inca()) source('~/Documents/Github/HH_Highmaps/fun_HM_Sweden.R')
 # INCA
-if (.is.inca()) source('D:/R-Scripts/Väst/Oc5hoer/funktioner/fun_surv_est.R', encoding = "UTF-8")
+if (.is.inca()) source('D:/R-Scripts/Väst/Oc5hoer/funktioner/fun_HM_Sweden.R', encoding = "UTF-8")
 
 
 
@@ -93,23 +93,57 @@ Urval <- paste0("(Urval: Diagnosår: ",Från,"-",Till,", Diagnos: ",Diagnos,", S
 
 
 
-HM_Sweden(df_HH,
-          "a_lkf", 
-          "region_namn",
-          title = Titel,
-          subtitle = Urval,
-          script_municipal_code = "kommuner.csv",
-          script_part1_code = "del1.txt",
-          script_jquery = "js/jquery.min.js",
-          script_highmaps = "js/highmaps.js",
-          script_drilldown = "js/drilldown.js",
-          script_maps_swe = "maps/swe.js",
-          script_maps_vast = "maps/vast.js",
-          script_maps_norr = "maps/norr.js",
-          script_maps_syd = "maps/syd.js",
-          script_maps_so = "maps/so.js",
-          script_maps_u = "maps/u.js",
-          script_maps_sg = "maps/sg.js")
 
+
+################################################################################
+#                                                                              #
+#                              Create the highmap                              #
+#                                                                              #
+################################################################################
+
+
+################################# Not on INCA ##################################
+if (!.is.inca()){
+  HM_Sweden(df_HH,
+            "a_lkf", 
+            "region_namn",
+            title = Titel,
+            subtitle = Urval,
+            script_municipal_code = "kommuner.csv",
+            script_part1_code = "del1.txt",
+            script_jquery = "js/jquery.min.js",
+            script_highmaps = "js/highmaps.js",
+            script_drilldown = "js/drilldown.js",
+            script_maps_swe = "maps/swe.js",
+            script_maps_vast = "maps/vast.js",
+            script_maps_norr = "maps/norr.js",
+            script_maps_syd = "maps/syd.js",
+            script_maps_so = "maps/so.js",
+            script_maps_u = "maps/u.js",
+            script_maps_sg = "maps/sg.js")
+}
+
+
+
+################################### On INCA ####################################
+if (.is.inca()){
+  HM_Sweden(df_HH,
+            "a_lkf", 
+            "region_namn",
+            title = Titel,
+            subtitle = Urval,
+            script_municipal_code = "D:/R-Scripts/Väst/oc5hoer/highmaps/Antal fall/kommuner.csv",
+            script_part1_code = "D:/R-Scripts/Väst/oc5hoer/highmaps/Antal fall/del1.txt",
+            script_jquery = "/Public/Files/Huvud-_och_halscancer/highmaps/js/jquery.min.js",
+            script_highmaps = "/Public/Files/Huvud-_och_halscancer/highmaps/js/highmaps.js",
+            script_drilldown = "/Public/Files/Huvud-_och_halscancer/highmaps/js/drilldown.js",
+            script_maps_swe = "/Public/Files/Huvud-_och_halscancer/highmaps/maps/swe.js",
+            script_maps_vast = "/Public/Files/Huvud-_och_halscancer/highmaps/maps/vast.js",
+            script_maps_norr = "/Public/Files/Huvud-_och_halscancer/highmaps/maps/norr.js",
+            script_maps_syd = "/Public/Files/Huvud-_och_halscancer/highmaps/maps/syd.js",
+            script_maps_so = "/Public/Files/Huvud-_och_halscancer/highmaps/maps/so.js",
+            script_maps_u = "/Public/Files/Huvud-_och_halscancer/highmaps/maps/u.js",
+            script_maps_sg = "/Public/Files/Huvud-_och_halscancer/highmaps/maps/sg.js")
+}
 
 

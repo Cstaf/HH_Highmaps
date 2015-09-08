@@ -53,6 +53,7 @@ HM_Sweden <- function(
   ##################### Adjustments to the LKF-code variable #####################
   df$lkf <- as.character(df$lkf)
   df$lkf[nchar(df$lkf)== 5] <- paste0("0", df$lkf)[nchar(df$lkf)== 5]
+  df$lkf[nchar(df$lkf)== 3] <- paste0("0", df$lkf)[nchar(df$lkf)== 3]
   df$lkf <- substring(df$lkf,1,4)
   # Only keep valid format of LKF, i.e. nchar = 6
   df <- subset(df, lkf %in% kommuner$KNKOD)
