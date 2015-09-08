@@ -1,0 +1,247 @@
+
+ <script> 
+
+$(function () { 
+        Highcharts.setOptions({ 
+         lang: { 
+             drillUpText: 'Tillbaka' //{series.name} 
+         } 
+        }); 
+         // Initiate the chart 
+         $('#container').highcharts('Map', { 
+        mapNavigation: { 
+                     enabled: true, 
+                     buttonOptions: { 
+                         verticalAlign: 'bottom' 
+                         } 
+             }, 
+                plotOptions: { 
+            map: { 
+                borderColor: '#FFFFFF', 
+                color: map_color, 
+            } 
+        },
+        legend:{ 
+            enabled: false, 
+             },  
+        credits: false, 
+        title: { 
+             text: title
+         },
+        subtitle: { 
+             text: subtitle
+         }, 
+        series: [{ 
+            data: swedata, 
+             mapData: swe, 
+             name: 'Riket', 
+             joinBy: ['name', 'code'], 
+             animation: true, 
+             states: { 
+                 hover: { 
+                     color: hover_color 
+                 } 
+             }, 
+               tooltip: { 
+                 backgroundColor: 'none', 
+                 borderWidth: 0, 
+                 shadow: false, 
+                 useHTML: true, 
+                 padding: 0, 
+                 pointFormat:    '<b>{point.name}</b>' + '<br>' 
+                                 + tooltip + ' {point.value} ', 
+             }, 
+             dataLabels: { 
+                 enabled: true, 
+                 format: show_value 
+             } 
+         }], 
+        drilldown: { 
+             animation: true, 
+             activeDataLabelStyle: { 
+                 color: 'white', 
+                 textDecoration: 'none' 
+             }, 
+             drillUpButton: { 
+                 relativeTo: 'spacingBox', 
+                 position: { 
+                     x: 0, 
+                     y: 60 
+                 } 
+             }, 
+             series: [{ 
+                 id: 'v', 
+                 name: 'Region Väst', 
+                 data: vastdata, 
+                 mapData: vast, 
+                 joinBy: ['name', 'code'], 
+                 type: 'map', 
+                states: { 
+                    hover: { 
+                        color: hover_color 
+                    } 
+                }, 
+               tooltip: { 
+                 backgroundColor: 'none', 
+                 borderWidth: 0, 
+                 shadow: false, 
+                 useHTML: true, 
+                 padding: 0, 
+                 pointFormat:    '<b>{point.name}</b>' + '<br>' 
+                                 + tooltip + ' {point.value} ', 
+                }, 
+                dataLabels: { 
+                    enabled: true, 
+                    format: show_value
+                } 
+             },{ 
+                id: 'n', 
+                 name: 'Region Norr', 
+                 data: norrdata, 
+                 mapData: norr, 
+                 joinBy: ['name', 'code'], 
+                 type: 'map', 
+                states: { 
+                    hover: { 
+                        color: hover_color 
+                    } 
+                }, 
+               tooltip: { 
+                 backgroundColor: 'none', 
+                 borderWidth: 0, 
+                 shadow: false, 
+                 useHTML: true, 
+                 padding: 0, 
+                 pointFormat:    '<b>{point.name}</b>' + '<br>' 
+                                 + tooltip + ' {point.value} ', 
+                 }, 
+                dataLabels: { 
+                    enabled: true, 
+                    format: show_value
+                } 
+             },{ 
+                id: 's', 
+                 name: 'Region Syd', 
+                 data: syddata, 
+                 mapData: syd, 
+                 joinBy: ['name', 'code'], 
+                 type: 'map', 
+                states: { 
+                    hover: { 
+                        color: hover_color 
+                    } 
+                }, 
+               tooltip: { 
+                 backgroundColor: 'none', 
+                 borderWidth: 0, 
+                 shadow: false, 
+                 useHTML: true, 
+                 padding: 0, 
+                 pointFormat:    '<b>{point.name}</b>' + '<br>' 
+                                 + tooltip + ' {point.value} ', 
+                 }, 
+                dataLabels: { 
+                    enabled: true, 
+                    format: show_value 
+                } 
+             },{ 
+                id: 'so', 
+                 name: 'Region Sydost', 
+                 data: sodata, 
+                 mapData: so, 
+                 joinBy: ['name', 'code'], 
+                 type: 'map', 
+                states: { 
+                    hover: { 
+                        color: hover_color 
+                    } 
+                }, 
+               tooltip: { 
+                 backgroundColor: 'none', 
+                 borderWidth: 0, 
+                 shadow: false, 
+                 useHTML: true, 
+                 padding: 0, 
+                 pointFormat:    '<b>{point.name}</b>' + '<br>' 
+                                 + tooltip + ' {point.value} ', 
+                 }, 
+                dataLabels: { 
+                    enabled: true, 
+                    format: show_value
+                } 
+             },{ 
+                id: 'u', 
+                 name: 'Region Uppsala/Örebro', 
+                 data: udata, 
+                 mapData: u, 
+                 joinBy: ['name', 'code'], 
+                 type: 'map', 
+                states: { 
+                    hover: { 
+                        color: hover_color 
+                    } 
+                }, 
+               tooltip: { 
+                 backgroundColor: 'none', 
+                 borderWidth: 0, 
+                 shadow: false, 
+                 useHTML: true, 
+                 padding: 0, 
+                 pointFormat:    '<b>{point.name}</b>' + '<br>' 
+                                 + tooltip + ' {point.value} ', 
+                 }, 
+                dataLabels: { 
+                    enabled: true, 
+                    format: show_value 
+                } 
+             },{ 
+                id: 'sg', 
+                 name: 'Region Stockholm/Gotland', 
+                 data: sgdata, 
+                 mapData: sg, 
+                 joinBy: ['name', 'code'], 
+                 type: 'map', 
+                states: { 
+                    hover: { 
+                        color: hover_color 
+                    } 
+                }, 
+               tooltip: { 
+                 backgroundColor: 'none', 
+                 borderWidth: 0, 
+                 shadow: false, 
+                 useHTML: true, 
+                 padding: 0, 
+                 pointFormat:    '<b>{point.name}</b>' + '<br>' 
+                                 + tooltip + ' {point.value} ', 
+                 }, 
+                dataLabels: { 
+                    enabled: true, 
+                    format: show_value 
+                } 
+             }] 
+         } 
+        }); 
+ }); 
+
+
+
+
+ </script> 
+ </HEAD> 
+     
+ <BODY> 
+ <div id="container" style="height: 700px; width: 800px;"></div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Skript under här laddas in från R-bearbetning -->
+ <script>
